@@ -1,0 +1,25 @@
+.Todo-header {
+    font-family: "Helvetica Neue";
+    color: darkred;
+    font-weight: lighter;
+    font-size: 5em;
+    margin-top: -1em;
+}
+
+.Todo-container {
+    margin-top:0;
+    padding-top: 0;
+}
+
+#Todo-enter {
+    min-width: 50em;
+    height: 3em;
+    border: 0.15em solid #eeeeee;
+    border-radius: 0.25em;
+    box-shadow: 2px 2px 5px 2px #eeeeee;
+    background-color: white;
+    padding: 1em;
+    font-family: "Helvetica Neue";
+    color: #cdcdcd;
+}
+
