@@ -2,7 +2,6 @@ import React from 'react';
 import './todo-main.css';
 // import PropTypes from 'prop-types';
 
-
 const TodoMain = () => {
     return (
         <div>

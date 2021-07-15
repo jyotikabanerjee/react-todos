@@ -4,6 +4,7 @@
     font-weight: lighter;
     font-size: 5em;
     margin-top: -1em;
+    opacity: 50%;
 }
 
 .Todo-container {
@@ -12,14 +13,25 @@
 }
 
 #Todo-enter {
-    min-width: 50em;
+    min-width: 30em;
     height: 3em;
     border: 0.15em solid #eeeeee;
     border-radius: 0.25em;
     box-shadow: 2px 2px 5px 2px #eeeeee;
     background-color: white;
-    padding: 1em;
+    padding-left: 1em;
     font-family: "Helvetica Neue";
-    color: #cdcdcd;
+    font-weight: lighter;
+    font-size: 1em;
 }
 
+#Todo-enter::placeholder {
+    color: #cdcdcd;
+    font-size: 1.5em;
+    font-weight: lighter;
+    padding-left: 1em;
+}
+
+#Todo-enter:focus {
+    border: 0.15em solid #eeeeee;;
+}
