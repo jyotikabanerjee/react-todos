@@ -1,5 +1,5 @@
 {
-  "homepage": "https://jyotikabanerjee.github.io/react-todos/",
+  "homepage": "https://jyotikabanerjee.github.io/",
   "name": "react-todos",
   "version": "0.1.0",
   "private": true,
@@ -41,6 +41,7 @@
   "devDependencies": {
     "gh-pages": "^3.2.3",
     "node-sass": "^6.0.1",
+    "react-router-dom": "^5.2.0",
     "sass-loader": "^12.1.0",
     "uuid": "^8.3.2"
   }
