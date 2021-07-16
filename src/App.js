@@ -1,6 +1,5 @@
 import './App.css';
-import './pages/todo-main'
-import TodoMain from "./pages/todo-main";
+import TodoMain from "./pages/todos/todo-main";
 
 function App() {
   return (

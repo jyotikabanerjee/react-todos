@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import './todo-main.css';
 import {v4} from 'uuid';
-import TodoItem from "../components/item/todo-item";
+import TodoItem from "../../components/todos/item/todo-item";
+import * as classes from "./main.module.scss"
 
 const TodoMain = () => {
     let [todos, setTodos] = useState([]);
@@ -29,11 +29,11 @@ const TodoMain = () => {
 
     return (
         <div>
-            <h1 className="Todo-header">
+            <h1 className={classes.header}>
                 todos
              </h1>
-            <div className="Todo-container">
-                <input id="Todo-enter" type="text" placeholder="What needs to be done?" onKeyDown={handleKeyDown} onBlur={handleSubmit}/>
+            <div className={classes.container}>
+                <input id={classes.enter} type="text" placeholder="What needs to be done?" onKeyDown={handleKeyDown} onBlur={handleSubmit}/>
             </div>
             <div>
                 {todos.length > 0  && todos.map((item)=> {

@@ -1,18 +1,17 @@
-.Todo-header {
-    font-family: "Helvetica Neue";
-    color: darkred;
-    font-weight: lighter;
-    font-size: 5em;
-    margin-top: -1em;
-    opacity: 70%;
+.header {
+  font-family: "Helvetica Neue";
+  color: darkred;
+  font-weight: lighter;
+  font-size: 5em;
+  margin-top: -1em;
+  opacity: 70%;
 }
 
-.Todo-container {
-    margin-top:0;
-    padding-top: 0;
-}
+.container {
+  margin-top:5px;
+  //padding-top: 0;
 
-#Todo-enter {
+  #enter {
     min-width: 30em;
     height: 3em;
     border: 0.15em solid #eeeeee;
@@ -23,15 +22,18 @@
     font-family: "Helvetica Neue";
     font-weight: lighter;
     font-size: 1em;
-}
+    text-align: center;
+  }
 
-#Todo-enter::placeholder {
+  #enter::placeholder {
     color: #cdcdcd;
     font-size: 1.5em;
     font-weight: lighter;
     padding-left: 1em;
+  }
+
+  #enter:focus {
+    border: 0.15em solid #eeeeee;;
+  }
 }
 
-#Todo-enter:focus {
-    border: 0.15em solid #eeeeee;;
-}
