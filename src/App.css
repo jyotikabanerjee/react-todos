@@ -1,0 +1,28 @@
+.header {
+    min-height: 100vh;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    margin: 1em;
+}
+
+ul {
+    list-style-type: none;
+    text-decoration: none;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+
+ul  li {
+    text-decoration: none;
+    display: inline;
+    border: 1px solid #eee;
+    box-shadow: 1px 1px 2px 2px #eee;
+    margin: 1em;
+    padding: 1em;
+}
