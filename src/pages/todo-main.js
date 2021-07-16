@@ -1,19 +1,30 @@
 import React, {useState} from 'react';
 import './todo-main.css';
+import {v4} from 'uuid';
 import TodoItem from "../components/item/todo-item";
 
 const TodoMain = () => {
-    let [todoItem, setTodoItem] = useState({});
+    let [todos, setTodos] = useState([]);
+
     const handleKeyDown = (ev) => {
-        // console.log(ev.key);
+        if(ev.target.value )
         if(ev.key === 'Enter') {
-            console.log(ev.target.value);
-            let obj = {
+            if(ev.target.value === '') {
+                return;
+            }
+            setTodos([...todos, {
                 'task': ev.target.value,
-                'done': false
-            };
-            setTodoItem(obj);
+                'done': false,
+                'key': v4()
+            }]);
+
+            ev.target.value = '';
+            // console.log(todos);
         }
+    };
+
+    const handleSubmit = () => {
+
     };
 
     return (
@@ -22,9 +33,13 @@ const TodoMain = () => {
                 todos
              </h1>
             <div className="Todo-container">
-                <input id="Todo-enter" type="text" placeholder="What needs to be done?" onKeyDown={handleKeyDown}/>
+                <input id="Todo-enter" type="text" placeholder="What needs to be done?" onKeyDown={handleKeyDown} onBlur={handleSubmit}/>
             </div>
-            <TodoItem todo={todoItem}/>
+            <div>
+                {todos.length > 0  && todos.map((item)=> {
+                    return <TodoItem key={item.key} todo={item}/>
+                })}
+            </div>
         </div>
     );
 };
