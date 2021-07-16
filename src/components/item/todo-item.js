@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import * as classes from './items.module.scss';
 
 const TodoItem = (todo) => {
     // let [item, setItem] = useState({});
@@ -7,12 +8,15 @@ const TodoItem = (todo) => {
     //     console.log(todo);
     //     setItem(todo);
     // }, [todo]);
+    /*
+    *
+    * */
     let item = {todo};
     console.log(item);
 
     return (
         <div>
-           <div className="Item-container">
+           <div className={classes.container}>
                Here are your tasks:
                <span> {item.task} </span>
                <span> {item.done} </span>
