@@ -12,6 +12,7 @@ function App() {
     //     <TodoMain/>
     //   </header>
     // </div>
+      <div className="parent">
       <Router>
           <ul className="App-header">
               <li>
@@ -36,6 +37,7 @@ function App() {
               </Route>
           </Switch>
       </Router>
+      </div>
   );
 }
 

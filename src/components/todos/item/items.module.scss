@@ -5,4 +5,23 @@
   color: black;
   font-family: "Helvetica Neue";
   font-weight: lighter;
+
+  input[type="radio"]:checked {
+    content: '';
+    border: 2px solid white;
+    background-color: gray;
+  }
+  .taskname {
+    padding: 0.5em 0 0 0.5em;
+  }
+
+  .taskdone {
+    text-decoration: line-through;
+  }
+
+  .cancel {
+    padding: 5px;
+    float: right;
+    cursor: pointer;
+  }
 }

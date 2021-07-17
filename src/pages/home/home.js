@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import './home.css'
 
-const Home = ({}) => {
+const Home = () => {
     return (
-       <div>
+       <div className="container">
         Jyotika Banerjee - Projects
         </div>
 )
