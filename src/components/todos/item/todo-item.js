@@ -1,17 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import * as classes from './items.module.scss';
 import { BsTrash } from "react-icons/bs";
 
-const TodoItem = ({todo, pending, setPending, todos, setTodos}) => {
-    let [done, setDone] = useState(false);
+const TodoItem = ({todo, pending, setPending, todos, setTodos, displayTask}) => {
 
     const findTodo = (key) => {
         return todos.findIndex(elem =>  elem.key === key);
     }
 
     const taskDone = (ev) => {
-        todo.done = true;
         let index = findTodo(todo.key);
         todos.splice(index, 1, {
             'task': todo.task,
@@ -20,7 +18,6 @@ const TodoItem = ({todo, pending, setPending, todos, setTodos}) => {
         });
         setTodos([...todos])
         console.log(todos);
-        setDone(true);
         pending = pending-1 >= 0 ? pending-1 : 0 ;
         setPending(pending);
     }
@@ -39,8 +36,8 @@ const TodoItem = ({todo, pending, setPending, todos, setTodos}) => {
     return (
         <div>
             <div className={classes.container}>
-                <input type="radio" value={todo.done} name={todo.id} onChange={taskDone}/>
-                <span className={`${classes.taskname}  ${done  === true ? classes.taskdone : ""} `}> {todo.task} </span>
+                <input type="radio" value={todo.done} name={todo.id} onChange={taskDone} checked={todo.done}/>
+                <span className={`${classes.taskname}  ${todo.done  === true ? classes.taskdone : ""} `}> {todo.task} </span>
                 <span className={classes.cancel} onClick={removeTask}> <BsTrash/> </span>
             </div>
         </div>
@@ -52,14 +49,16 @@ TodoItem.propTypes = {
     pending: PropTypes.number,
     setPending: PropTypes.func,
     todos: PropTypes.array,
-    setTodos: PropTypes.func
+    setTodos: PropTypes.func,
+    displayTask: PropTypes.bool
 };
 TodoItem.defaultProps = {
     todo: {},
     pending: 0,
     setPending: () => {},
     todos: [],
-    setTodos: () => {}
+    setTodos: () => {},
+    displayTask: true
 };
 
 export default TodoItem;

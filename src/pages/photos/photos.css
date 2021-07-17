@@ -1,4 +1,11 @@
-.container {
+.parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.allImgContainer {
     font-family: "Helvetica Neue";
     margin: 2em auto;
     display: flex;
@@ -6,9 +13,24 @@
     flex-wrap: wrap;
 }
 
-img {
+.imgViewer img{
+    height: 50%;
+    width: 50%;
+    cursor: pointer;
+}
+
+.leftIcon, .rightIcon {
+    padding: 10px;
+    color: black;
+    font-size: 2em;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.allImgContainer img {
     height: 200px;
     width: 300px;
     margin: 1em;
     padding: 1em;
+    cursor: pointer;
 }

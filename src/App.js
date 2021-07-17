@@ -1,5 +1,6 @@
 import './App.css';
 import TodoMain from "./pages/todos/todo-main";
+import SelectedPhoto from "./pages/photos/selected-photo"
 import Home from "./pages/home/home"
 import Photos from "./pages/photos/photos"
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -31,6 +32,9 @@ function App() {
               </Route>
               <Route path="/react-photos">
                   <Photos/>
+              </Route>
+              <Route path="/react-photos/:id">
+                  <SelectedPhoto/>
               </Route>
               <Route path="/">
                   <Home/>
