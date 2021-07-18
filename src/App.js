@@ -2,6 +2,7 @@ import './App.css';
 import TodoMain from "./pages/todos/todo-main";
 import SelectedPhoto from "./pages/photos/selected-photo"
 import MediaSearch from "./pages/search/media-search"
+import MyBlind from "./pages/myblind/my-blind"
 import Home from "./pages/home/home"
 import Photos from "./pages/photos/photos"
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -41,6 +42,9 @@ function App() {
               <li>
                   <Link to="/react-search"> Search </Link>
               </li>
+              <li>
+                  <Link to="/react-myblind">BLIND</Link>
+              </li>
           </ul>
           <Switch>
               <Route path="/react-todos">
@@ -54,6 +58,9 @@ function App() {
               </Route>
               <Route path="/react-search">
                 <MediaSearch/>
+              </Route>
+              <Route path="/react-myblind">
+                  <MyBlind/>
               </Route>
               <Route path="/">
                   <Home/>
