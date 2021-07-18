@@ -1,0 +1,49 @@
+.title {
+  color: darkred;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+}
+
+.searchbar {
+  align-content: center;
+  justify-content: center;
+  #enter {
+    min-width: 30em;
+    height: 3em;
+    border: 0.15em solid #eeeeee;
+    border-radius: 0.25em;
+    box-shadow: 2px 2px 5px 2px #eeeeee;
+    background-color: white;
+    padding-left: 1em;
+    font-family: "Helvetica Neue";
+    font-weight: lighter;
+    font-size: 1em;
+    text-align: center;
+  }
+
+  #enter::placeholder {
+    color: #cdcdcd;
+    font-size: 1.5em;
+    font-weight: lighter;
+    padding-left: 1em;
+  }
+
+  #enter:focus, #enter::selection {
+    outline: none;
+  }
+}
+
+.results {
+
+  .album {
+    margin: 0.25em;
+    padding: 0.25em;
+    border: 1px solid #eee;
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: gray;
+  }
+}
