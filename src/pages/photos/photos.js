@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {useHistory, useRouteMatch, Switch, Route} from 'react-router-dom'
+import {useHistory, useRouteMatch} from 'react-router-dom'
 // import PropTypes from 'prop-types';
 // import * as classes from './photos.module.scss'
 import './photos.css';
 // import SelectedPhoto from './selected-photo'
 import {BsChevronLeft, BsChevronRight, BsCardImage} from 'react-icons/bs';
+const NUM_PHOTOS = 30;
 
 async function myHTTPGET (url) {
-    // console.log('myHTTPGET called')
     return await fetch(url);
 }
 
@@ -21,52 +21,50 @@ const Photos = () => {
 
     useEffect(() => {
         async function getPhotoDetails () {
-            let res = await myHTTPGET('https://picsum.photos/v2/list?limit=200');
-            // console.log(res.body);
+            let res = await myHTTPGET(`https://picsum.photos/v2/list?limit=${NUM_PHOTOS}`);
+
             if(!res.ok) {
                 throw new Error(`HTTP Error!! Status: ${res.status}`);
             }
             let imgInfo = await res.json();
-            console.log(imgInfo);
+            // console.log(imgInfo);
             setAllPhotos(imgInfo);
             setSelectedImg(imgInfo[0]);
         }
         getPhotoDetails();
     }, []);
 
-    const renderPhoto = (data, id, flag) => {
-        if(flag === 1) {
-            console.log(data);
-            // render primary photo
-            let div = document.createElement('div');
-            div.key = idx;
-            div.style.backgroundImage = `url(${data.download_url})`;
-            div.addEventListener('click', selectImage)
-            console.log(div)
-            return div;
-        } else {
-            let img = document.createElement('img');
-            img.addEventListener('load', () => {
-                console.log('img load successful.')
-            })
-            img.addEventListener('error', () => {
-                return <span> <BsCardImage/> </span>
-            })
-            if(data.download_url) {
-                img.src = data.download_url;
-                img.alt = data.author;
-                img.key = data.id;
-                img.id = id ? id : data.id;
-                img.addEventListener('click', setPhoto);
-                // console.log(img);
-                return img;
-            } else {
-                return <span> <BsCardImage/> </span>
-            }
-
-
-         }
-    }
+    // const renderPhoto = (data, id, flag) => {
+    //     if(flag === 1) {
+    //         console.log(data);
+    //         // render primary photo
+    //         let div = document.createElement('div');
+    //         div.key = idx;
+    //         div.style.backgroundImage = `url(${data.download_url})`;
+    //         div.addEventListener('click', selectImage);
+    //         console.log(div);
+    //         return div;
+    //     } else {
+    //         let img = document.createElement('img');
+    //         img.addEventListener('load', () => {
+    //             console.log('img load successful.')
+    //         });
+    //         img.addEventListener('error', () => {
+    //             return <span> <BsCardImage/> </span>
+    //         });
+    //         if(data.download_url) {
+    //             img.src = data.download_url;
+    //             img.alt = data.author;
+    //             img.key = data.id;
+    //             img.id = id ? id : data.id;
+    //             img.addEventListener('click', setPhoto);
+    //             // console.log(img);
+    //             return img;
+    //         } else {
+    //             return <span> <BsCardImage/> </span>
+    //         }
+    //      }
+    // };
 
 
     const showNext = () => {
@@ -76,7 +74,7 @@ const Photos = () => {
         }
         setIdx(idx);
         setSelectedImg(allPhotos[idx]);
-    }
+    };
 
     const showPrevious = () => {
         idx = idx-1;
@@ -85,18 +83,18 @@ const Photos = () => {
         }
         setIdx(idx);
         setSelectedImg(allPhotos[idx]);
-    }
+    };
 
     const setPhoto = (ev) => {
         console.log(ev.target.id);
         setIdx(ev.target.id);
         setSelectedImg(allPhotos[ev.target.id]);
-    }
+    };
 
     const selectImage = (ev) => {
-        console.log(ev.target);
-        console.log('Navigate to conversion page')
-        history.push('/react-photos/'+ev.target.id);
+        // console.log(ev.target);
+        // console.log('Navigate to conversion page');
+        history.push(`${match.path}/${ev.target.id}`);
     };
     //     {allPhotos.length > 0 && <div style={{backgroundImage: `url(${selectedImg.download_url})`}} key={idx} id={idx} onClick={setPhoto}></div>}
     //
@@ -105,7 +103,7 @@ const Photos = () => {
             <div className="parent">
                 <div className="imgViewer">
                     <span className="leftIcon" onClick={showPrevious}> <BsChevronLeft/> </span>
-                        {allPhotos.length > 0 && <img src={selectedImg.download_url} alt={selectedImg.author} key={idx} id={idx} onClick={setPhoto}/>}
+                        {allPhotos.length > 0 && <img src={selectedImg.download_url} alt={selectedImg.author} key={idx} id={idx} onClick={selectImage}/>}
                     <span className="rightIcon" onClick={showNext}> <BsChevronRight/> </span>
                 </div>
 
@@ -117,9 +115,6 @@ const Photos = () => {
                     })}
                  </section>
             </div>
-                        <Switch>
-                            <Route path={`${match.path}/:id}`}></Route>
-                        </Switch>
         </div>
     );
 };

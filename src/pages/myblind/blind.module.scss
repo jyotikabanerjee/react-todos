@@ -1,5 +1,19 @@
-div {
-  font-family: "Helvetica Neue";
-  font-weight: bold;
-  color: darkred;
+.container {
+  display: flex;
+  flex-direction: row;
+  h2 {
+    font-family: "Helvetica Neue";
+    font-weight: bold;
+    color: black;
+  }
+
+  a {
+    text-decoration: none;
+    margin: 0.25em;
+    padding: 0.25em;
+  }
+  div {
+    font-family: "Helvetica Neue";
+    color: black;
+  }
 }
