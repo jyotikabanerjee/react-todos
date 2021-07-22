@@ -8,10 +8,13 @@ import Photos from "./pages/photos/photos"
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 // import * as classes from './app.module.scss';
+import PhotosContext from "./pages/photos/PhotosContext";
+import React, {useState} from "react";
 
 function App() {
     const history = createBrowserHistory();
-
+    let [allPhotos, setAllPhotos] = useState([]);
+    let [selectedImg, setSelectedImg] = useState({}); //first img
 // Get the current location.
 //     const location = history.location;
 
@@ -21,12 +24,17 @@ function App() {
         console.log(action, location.pathname, location.state);
     });
 
+    const value = {
+        setPhotos:setAllPhotos, photos:allPhotos, setSelectedPhoto:setSelectedImg, selectedPhoto:selectedImg
+    };
+
   return (
     // <div className="App">
     //   <header className="App-header">
     //     <TodoMain/>
     //   </header>
     // </div>
+      <PhotosContext.Provider value={value}>
       <div className="parent">
       <Router>
           <ul className="App-header">
@@ -65,6 +73,7 @@ function App() {
           </Switch>
       </Router>
       </div>
+      </PhotosContext.Provider>
   );
 }
 
