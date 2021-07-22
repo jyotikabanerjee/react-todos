@@ -42,9 +42,6 @@ function App() {
               <li>
                   <Link to="/react-search"> Search </Link>
               </li>
-              {/*<li>*/}
-              {/*    <Link to="/react-myblind">BLIND</Link>*/}
-              {/*</li>*/}
           </ul>
           <Switch>
               <Route path="/react-todos">
